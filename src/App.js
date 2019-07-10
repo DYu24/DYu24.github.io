@@ -1,7 +1,8 @@
 import React from "react";
+import logo from "./logo.svg";
 import "./App.css";
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -9,6 +10,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-};
+}
 
 export default App;
