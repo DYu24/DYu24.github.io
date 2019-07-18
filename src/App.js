@@ -1,11 +1,14 @@
 import React from 'react';
+import { NavBar } from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
-import './App.css';
 import { AboutMe } from './components/about-me/AboutMe';
+
+import './App.css';
 
 function App() {
     return (
         <div className='App'>
+            <NavBar />
             <Landing />
             <AboutMe />
             <h1>
