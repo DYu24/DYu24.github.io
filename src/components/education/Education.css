@@ -1,0 +1,12 @@
+.education-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.education-header {
+    width: 40vw;
+    position: relative;
+    font-size: 2.5vh;
+}

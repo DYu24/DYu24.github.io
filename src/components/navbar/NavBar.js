@@ -15,12 +15,9 @@ const HideOnScroll = (props) => {
     const trigger = useScrollTrigger();
 
     return (
-        // <Slide appear={false} direction='down' in={!trigger}>
-        //     {children}
-        // </Slide>
-        <div>
+        <Slide appear={false} direction='down' in={!trigger}>
             {children}
-        </div>
+        </Slide>
     );
 };
 
@@ -41,21 +38,23 @@ const NavBarButton = (props) => {
 };
 
 export class NavBar extends React.Component {
+    state = {
+        style: {
+            background: 'transparent',
+            boxShadow: 'none',
+        },
+    };
+
     render() {
+        const { style } = this.state;
         return (
             <HideOnScroll {...this.props}>
-                <AppBar
-                    style={{ background: 'transparent', boxShadow: 'none' }}
-                >
+                <AppBar style={style}>
                     <Toolbar className='navbar-container'>
                         <NavBarButton to='#about-me' text='About Me' />
                         <NavBarButton to='#education' text='Education' />
-                        <Button className='navbar-elements' color='inherit'>
-                            Work Experience
-                        </Button>
-                        <Button className='navbar-elements' color='inherit'>
-                            Projects
-                        </Button>
+                        <NavBarButton to='#work-experience' text='Work Experience' />
+                        <NavBarButton to='#projects' text='Projects' />
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>

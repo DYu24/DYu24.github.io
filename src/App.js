@@ -7,6 +7,8 @@ import { NavBar } from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
 import { AboutMe } from './components/about-me/AboutMe';
 import { Education } from './components/education/Education';
+import { WorkExperience } from './components/work-experience/WorkExperience';
+import { Projects } from './components/projects/Projects';
 
 import './App.css';
 
@@ -25,72 +27,9 @@ class App extends React.Component {
                     <Landing />
                     <AboutMe />
                     <Education />
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
-                    <h1>
-                        <em>SUPREME</em>
-                    </h1>
+                    <WorkExperience />
+                    <Projects />
+
                     <Fab
                         className='fab'
                         variant='extended'
