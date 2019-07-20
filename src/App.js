@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { animateScroll } from 'react-scroll';
 import { Fab } from '@material-ui/core';
+import { ExpandLess } from '@material-ui/icons';
 
 import { NavBar } from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
@@ -32,11 +33,10 @@ class App extends React.Component {
 
                     <Fab
                         className='fab'
-                        variant='extended'
                         color='primary'
                         onClick={this.scrollToTop}
                     >
-                        Back to top
+                        <ExpandLess />
                     </Fab>
                 </div>
             </BrowserRouter>
