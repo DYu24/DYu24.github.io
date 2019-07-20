@@ -1,16 +1,16 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { ImageLoader } from './ImageLoader';
-import { Parallax } from 'react-scroll-parallax';
+// import { Parallax } from 'react-scroll-parallax';
 
 import './AboutMe.css';
 
 export class AboutMe extends React.Component {
     render() {
         return (
-            <div className='container'>
+            <div className='about-me-container' id='about-me'>
                 <div className='profile-picture-container'>
-                    <LazyLoad debounce={false} offsetVertical={5}>
+                    <LazyLoad debounce={false} offsetVertical={500}>
                         <ImageLoader
                             style={{ height: '70vh ' }}
                             className='profile-picture'
