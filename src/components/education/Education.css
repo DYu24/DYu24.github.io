@@ -1,12 +1,37 @@
 .education-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
+    width: 98vw;
 }
 
 .education-header {
-    width: 40vw;
+    text-align: center;
+    width: 100%;
     position: relative;
     font-size: 2.5vh;
+}
+
+.education-grid {
+    margin-top: 5vh;
+}
+
+.education-pane {
+    height: 70vh;
+    width: 40vw;
+}
+
+Card { 
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+CardHeader {
+    text-align: center;
+}
+
+CardContent {
+    text-align: justify;
 }

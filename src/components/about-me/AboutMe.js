@@ -1,7 +1,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { ImageLoader } from './ImageLoader';
-// import { Parallax } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 
 import './AboutMe.css';
 

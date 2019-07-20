@@ -1,7 +1,3 @@
-.App {
-    text-align: center;
-}
-
 body {
     width: 100wh;
     color: #fff;
@@ -49,6 +45,6 @@ body {
 }
 
 .fab {
-    right: 20;
+    bottom: 1em;
     position: fixed;
 };

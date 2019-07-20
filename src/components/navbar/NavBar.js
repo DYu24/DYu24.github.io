@@ -40,8 +40,8 @@ const NavBarButton = (props) => {
 export class NavBar extends React.Component {
     state = {
         style: {
-            background: 'transparent',
-            boxShadow: 'none',
+            backgroundColor: 'white',
+            color: 'black',
         },
     };
 
