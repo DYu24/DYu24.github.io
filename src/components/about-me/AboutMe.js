@@ -1,7 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { ImageLoader } from './ImageLoader';
-import { Parallax } from 'react-scroll-parallax';
 
 import './AboutMe.css';
 
@@ -14,7 +13,7 @@ export class AboutMe extends React.Component {
                         <ImageLoader
                             style={{ height: '70vh ' }}
                             className='profile-picture'
-                            src={require('../../images/DSC_0962.jpg')}
+                            src={require('../../images/DSC_0376.jpg')}
                         />
                     </LazyLoad>
                 </div>

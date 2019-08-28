@@ -7,7 +7,6 @@ import { ExpandLess } from '@material-ui/icons';
 import { NavBar } from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
 import { AboutMe } from './components/about-me/AboutMe';
-import { Education } from './components/education/Education';
 import { WorkExperience } from './components/work-experience/WorkExperience';
 import { Projects } from './components/projects/Projects';
 
@@ -27,7 +26,6 @@ class App extends React.Component {
                     <NavBar />
                     <Landing />
                     <AboutMe />
-                    {/* <Education /> */}
                     <WorkExperience />
                     <Projects />
 
