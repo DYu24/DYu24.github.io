@@ -52,7 +52,7 @@ export class NavBar extends React.Component {
                 <AppBar style={style}>
                     <Toolbar className='navbar-container'>
                         <NavBarButton to='#about-me' text='About Me' />
-                        <NavBarButton to='#education' text='Education' />
+                        {/* <NavBarButton to='#education' text='Education' /> */}
                         <NavBarButton to='#work-experience' text='Work Experience' />
                         <NavBarButton to='#projects' text='Projects' />
                     </Toolbar>

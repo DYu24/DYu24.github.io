@@ -27,7 +27,7 @@ class App extends React.Component {
                     <NavBar />
                     <Landing />
                     <AboutMe />
-                    <Education />
+                    {/* <Education /> */}
                     <WorkExperience />
                     <Projects />
 
