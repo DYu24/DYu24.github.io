@@ -1,9 +1,17 @@
 .about-me-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 100vh;
-    background: #63f2c3;
+    padding-top: 1em;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding-top: 1em;
 }
 
 .profile-picture-container {
