@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from 'react-image';
 
 import './JobInfo.css';
 import { ImageLoader } from '../common/ImageLoader';

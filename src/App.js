@@ -29,13 +29,13 @@ class App extends React.Component {
                     <WorkExperience />
                     <Projects />
 
-                    <Fab
+                    {/* <Fab
                         className='fab'
                         color='primary'
                         onClick={this.scrollToTop}
                     >
                         <ExpandLess />
-                    </Fab>
+                    </Fab> */}
                 </div>
             </BrowserRouter>
         );
