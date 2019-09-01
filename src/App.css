@@ -3,6 +3,10 @@ body {
     font-weight: 500;
 }
 
+p {
+    line-height: 1.5;
+}
+
 .underline {
     height: 4px;
     width: 100px;

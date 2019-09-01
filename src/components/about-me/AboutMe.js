@@ -22,25 +22,23 @@ export class AboutMe extends React.Component {
 
                     <div className='description'>
                         <p>
-                            I'm a deer hunter. I go all the time with my dad.
-                            One thing about deer: they have very good vision.
-                            One thing about me: I'm better at hiding, than they
-                            are at vision.
+                            I'm a fourth-year software engineering student at 
+                            Concordia University in Montreal, Canada. I first 
+                            got into programming when I joined the robotics team at
+                            school and instantly fell in love with all the creative 
+                            possibilities that came with coding.
                         </p>
                         <p>
-                            Do I feel bad about betraying Jim? Not at all.
-                            That's the game. Convince him we're in an alliance,
-                            get some information, throw him to the wolves.
-                            That's politics baby! Get what you can out of
-                            someone, then crush them.
+                            I find myself drawn to backend development as I'm most 
+                            intrigued by the architectural and algorithmic challenges
+                            that come with it. I have experience developing in several 
+                            languages and frameworks (such as TypeScript, Java and Python 
+                            to name a few).
                         </p>
                         <p>
-                            I think Jim might have learned a very valuable
-                            lesson. I was the youngest pilot in Pan Am history.
-                            When I was four, the pilot let me ride in the
-                            cockpit and fly the plane with him. And I was four,
-                            and I was great and I would have landed it, but my
-                            dad wanted us to go back to our seats.
+                            Outside of my life of software development, I also love doing
+                            photography, travelling & exploring, eating, and following
+                            the latest tech news.
                         </p>
                     </div>
                 </div>

@@ -71,11 +71,8 @@ export class Landing extends React.Component {
                 ]}
             >
                 <div className='banner-children'>
-                    <h1>
-                        Hi, I'm <span className='my-name'>Derek</span>.
-                        <br />
-                        Welcome to my site!
-                    </h1>
+                    <h1>Derek Yu</h1>
+                    <h2>Software Engineering Student</h2>
                 </div>
             </ParallaxBanner>
         );

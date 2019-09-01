@@ -4,6 +4,7 @@
     right: 0;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -14,6 +15,13 @@
     color: white;
     font-size: 4.5vw;
     text-align: center;
+}
+
+.banner-children h2 {
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: -1em;
 }
 
 .banner-background {
