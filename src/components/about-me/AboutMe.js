@@ -9,6 +9,7 @@ export class AboutMe extends React.Component {
         return (
             <div className='about-me-container' id='about-me'>
                 <h1>ABOUT ME</h1>
+                <div className='underline'></div>
                 <div className='content'>
                     <div className='profile-picture-container'>
                         <LazyLoad debounce={false} offsetVertical={500}>

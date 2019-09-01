@@ -12,18 +12,14 @@
 
 .banner-children h1 {
     color: white;
-    font-size: 4vw;
+    font-size: 4.5vw;
     text-align: center;
-}
-
-.my-name {
-    color: #000000;
 }
 
 .banner-background {
     width: 100wh;
     color: #fff;
-    background: linear-gradient(45deg, #c7faff, #129ec9, #104869);
+    background: linear-gradient(45deg, #00f7cd, #129ec9, #186796, #03427c);
     background-size: 200% 200%;
     -webkit-animation: Gradient 30s ease infinite;
     -moz-animation: Gradient 30s ease infinite;

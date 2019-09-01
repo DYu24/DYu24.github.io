@@ -64,8 +64,9 @@ export class Projects extends React.Component {
         return (
             <div className='projects-container' id='projects'>
                 <h1>PROJECTS</h1>
-                <div className='projects-content'>
-                    <Grid container spacing={3}>
+                <div className='underline'></div> 
+                <div className='projects-contents'>
+                    <Grid container spacing={5}>
                         {this.listProjects()}
                     </Grid>
                 </div>

@@ -5,9 +5,10 @@
     align-items: center;
     height: 100%;
     padding-top: 2em;
+    padding-bottom: 3em;
 }
 
-.projects-content {
+.projects-contents {
     max-width: 80vw;
-    margin-top: 1em;
+    margin-top: 2em;
 }

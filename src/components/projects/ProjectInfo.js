@@ -19,7 +19,7 @@ export class ProjectInfo extends React.Component {
         const { img, title, description } = this.props;
 
         return (
-            <Card>
+            <Card raised={true} >
                 <CardMedia
                     style={{ height: '30vh' }}
                     image={img}

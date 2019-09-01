@@ -1,0 +1,11 @@
+body {
+    font-family: 'Raleway';
+    font-weight: 500;
+}
+
+.underline {
+    height: 4px;
+    width: 100px;
+    background: #179fd4;
+    margin-top: -10px;
+}

@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { ThemeProvider } from '@material-ui/styles';
+import { theme } from './Theme';
 
 ReactDOM.render(
     <ParallaxProvider>
-        <App />
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
     </ParallaxProvider>,
     document.getElementById('root'),
 );

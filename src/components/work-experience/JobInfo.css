@@ -7,4 +7,17 @@
 
 .job-info-content {
     flex-basis: 60%;
+    word-wrap: break-word;
+    text-align: justify;
+    font-size: 2.5vh;
+}
+
+.job-info-content h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.job-info-content h3 {
+    margin-top: -20px;
+    font-style: italic;
 }
