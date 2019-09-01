@@ -31,7 +31,7 @@ export class JobInfo extends React.Component {
             <div className='job-info-container'>
                 <div className='job-info-content'>
                     <h2>
-                        <a href={url} target='_blank' rel='noopener noreferrer'>
+                        <a href={url} title={url} target='_blank' rel='noopener noreferrer'>
                             {company}
                         </a>
                     </h2>
@@ -41,7 +41,7 @@ export class JobInfo extends React.Component {
                     {this.listTechnologies(technologies)}
                 </div>
                 <div className='job-info-visual'>
-                    <a href={url} target='_blank' rel='noopener noreferrer'>
+                    <a href={url} title={url} target='_blank' rel='noopener noreferrer'>
                         <ImageLoader
                             style={{ maxHeight: '200px', maxWidth: '200px' }}
                             src={src}

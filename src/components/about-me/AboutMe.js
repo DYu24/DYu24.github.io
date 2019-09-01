@@ -33,7 +33,7 @@ export class AboutMe extends React.Component {
                         justifyContent: 'center',
                     }}
                 >
-                    <a href={x.url} target='_blank' rel='noopener noreferrer'>
+                    <a href={x.url} title={x.url} target='_blank' rel='noopener noreferrer'>
                         <CardMedia
                             style={{ height: '70px', width: '70px' }}
                             image={x.img}

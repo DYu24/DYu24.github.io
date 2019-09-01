@@ -65,6 +65,7 @@ export class Landing extends React.Component {
                 <div className='icons'>
                     <a
                         href='https://github.com/DYu24'
+                        title='https://github.com/DYU24'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='icon-links'
@@ -73,6 +74,7 @@ export class Landing extends React.Component {
                     </a>
                     <a
                         href='https://www.linkedin.com/in/derek-yu/'
+                        title='https://www.linkedin.com/in/derek-yu/'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='icon-links'
@@ -83,6 +85,7 @@ export class Landing extends React.Component {
                     </a>
                     <a
                         href={require('../../resources/resume.pdf')}
+                        title='CV'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='icon-links'
