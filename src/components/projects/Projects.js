@@ -14,6 +14,7 @@ const projects = [
         This web application makes use of a chatroom that was built from scratch using WebSockets, 
         and also uses Google's Cloud Natural Language to calculate the "chemistry" between the two 
         users during the conversation.`,
+        technologies: ['Python', 'JavaScript', 'Flask', 'React', 'Google Cloud Platform'],
     },
     {
         img: require('../../images/TapOfWarLogo.png'),
@@ -22,6 +23,7 @@ const projects = [
         description: `A tug-of-war inspired game where users on opposing teams continuously tap to 
         dominate Nanoleaf light panels with their team's color. Whoever registers the most amount of 
         taps wins the game.`,
+        technologies: ['JavaScript', 'Node.Js', 'React', 'WebSockets'],
     },
     {
         img: require('../../images/caption-this-logo.png'),
@@ -30,6 +32,7 @@ const projects = [
         description: `A website that allows users to post their own pictures and let the community come up 
         with fun and interesting captions. In addition to uploading photos and submitting captions, 
         users can also interact with these posts by voting on their favourite captions.`,
+        technologies: ['JavaScript', 'Node.Js', 'React'],
     },
     {
         img: require('../../images/chefpic-logo.png'),
@@ -37,34 +40,29 @@ const projects = [
         url: 'https://github.com/DYu24/ChefPic',
         description: `Android application that allows a user to take a picture of an unknown dish and 
         returns the name of that dish, as well as a recipe for how to prepare it.`,
+        technologies: ['Java', 'Android', 'IBM Watson'],
     },
 ];
 
 export class Projects extends React.Component {
-    listProjects = () => {
-        let projectList = [];
-
-        projects.forEach((project) => {
-            projectList.push(
-                <Grid item xs={4}>
-                    <ProjectInfo
-                        img={project.img}
-                        title={project.title}
-                        description={project.description}
-                        url={project.url}
-                    />
-                </Grid>,
-            );
-        });
-
-        return projectList;
-    };
+    listProjects = () =>
+        projects.map((project) => (
+            <Grid item xs={4}>
+                <ProjectInfo
+                    img={project.img}
+                    title={project.title}
+                    description={project.description}
+                    url={project.url}
+                    technologies={project.technologies}
+                />
+            </Grid>
+        ));
 
     render() {
         return (
             <div className='projects-container' id='projects'>
                 <h1>PROJECTS</h1>
-                <div className='underline'></div> 
+                <div className='underline' />
                 <div className='projects-contents'>
                     <Grid container spacing={5}>
                         {this.listProjects()}

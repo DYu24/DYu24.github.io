@@ -1,11 +1,23 @@
 import React from 'react';
+import { Chip } from '@material-ui/core';
 
 import './JobInfo.css';
 import { ImageLoader } from '../common/ImageLoader';
 
 export class JobInfo extends React.Component {
+    listTechnologies = (values) =>
+        values.map((x) => <Chip label={x} color='primary' className='chip' />);
+
     render() {
-        const { company, position, period, src, description, url } = this.props;
+        const {
+            company,
+            position,
+            period,
+            src,
+            description,
+            url,
+            technologies,
+        } = this.props;
 
         return (
             <div className='job-info-container'>
@@ -18,6 +30,7 @@ export class JobInfo extends React.Component {
                     <h3>{position}</h3>
                     <h5>{period}</h5>
                     <p>{description}</p>
+                    {this.listTechnologies(technologies)}
                 </div>
                 <div className='job-info-visual'>
                     <a href={url} target='_blank' rel='noopener noreferrer'>

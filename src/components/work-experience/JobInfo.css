@@ -27,3 +27,7 @@
     font-style: italic;
     color: #a5a5a5;
 }
+
+.chip {
+    margin: 0.2em;
+}
