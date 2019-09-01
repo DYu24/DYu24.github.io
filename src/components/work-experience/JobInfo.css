@@ -21,3 +21,9 @@
     margin-top: -20px;
     font-style: italic;
 }
+
+.job-info-content h5 {
+    margin-top: -18px;
+    font-style: italic;
+    color: #a5a5a5;
+}

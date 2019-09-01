@@ -19,7 +19,7 @@
 .banner-background {
     width: 100wh;
     color: #fff;
-    background: linear-gradient(45deg, #00f7cd, #129ec9, #186796, #03427c);
+    background: linear-gradient(45deg, #00f7cd, #129ec9, #186796, #00327e);
     background-size: 200% 200%;
     -webkit-animation: Gradient 30s ease infinite;
     -moz-animation: Gradient 30s ease infinite;
