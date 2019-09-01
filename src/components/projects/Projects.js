@@ -6,7 +6,7 @@ import './Projects.css';
 
 const projects = [
     {
-        img: require('../../images/rudating.png'),
+        img: require('../../resources/rudating.png'),
         title: 'RUDating',
         url: 'https://github.com/DYu24/rudating',
         description: `A speed dating web application where users have 2 minutes to converse, after which 
@@ -17,7 +17,7 @@ const projects = [
         technologies: ['Python', 'JavaScript', 'Flask', 'React', 'Google Cloud Platform'],
     },
     {
-        img: require('../../images/TapOfWarLogo.png'),
+        img: require('../../resources/TapOfWarLogo.png'),
         title: 'Tap of War',
         url: 'https://github.com/DYu24/tap-of-war',
         description: `A tug-of-war inspired game where users on opposing teams continuously tap to 
@@ -26,7 +26,7 @@ const projects = [
         technologies: ['JavaScript', 'Node.Js', 'React', 'WebSockets'],
     },
     {
-        img: require('../../images/caption-this-logo.png'),
+        img: require('../../resources/caption-this-logo.png'),
         title: 'CaptionThis',
         url: 'https://github.com/DYu24/CaptionThis',
         description: `A website that allows users to post their own pictures and let the community come up 
@@ -35,7 +35,7 @@ const projects = [
         technologies: ['JavaScript', 'Node.Js', 'React'],
     },
     {
-        img: require('../../images/chefpic-logo.png'),
+        img: require('../../resources/chefpic-logo.png'),
         title: 'ChefPic',
         url: 'https://github.com/DYu24/ChefPic',
         description: `Android application that allows a user to take a picture of an unknown dish and 

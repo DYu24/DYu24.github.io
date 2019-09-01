@@ -15,7 +15,7 @@ export class AboutMe extends React.Component {
                         <LazyLoad debounce={false} offsetVertical={500}>
                             <ImageLoader
                                 style={{ height: '70vh' }}
-                                src={require('../../images/DSC_0376.jpg')}
+                                src={require('../../resources/DSC_0376.jpg')}
                             />
                         </LazyLoad>
                     </div>

@@ -28,14 +28,14 @@ export class Education extends React.Component {
                                         subheader='2016-2020 (Expected)'
                                         avatar={
                                             <Avatar
-                                                src={require('../../images/concordia-logo.jpg')}
+                                                src={require('../../resources/concordia-logo.jpg')}
                                             />
                                         }
                                     />
                                 </CardActionArea>
                                 <CardMedia
                                     style={{ height: '40vh' }}
-                                    image={require('../../images/concordia-ceremony.jpg')}
+                                    image={require('../../resources/concordia-ceremony.jpg')}
                                     title='Concordia Photo'
                                 />
                                 <CardContent>
@@ -80,14 +80,14 @@ export class Education extends React.Component {
                                         subheader='2014-2016'
                                         avatar={
                                             <Avatar
-                                                src={require('../../images/Marianopolis.png')}
+                                                src={require('../../resources/Marianopolis.png')}
                                             />
                                         }
                                     />
                                 </CardActionArea>
                                 <CardMedia
                                     style={{ height: '40vh' }}
-                                    image={require('../../images/mari-grad.jpg')}
+                                    image={require('../../resources/mari-grad.jpg')}
                                     title='Marianopolis Photo'
                                 />
                                 <CardContent>
