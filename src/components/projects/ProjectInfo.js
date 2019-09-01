@@ -17,7 +17,15 @@ export class ProjectInfo extends React.Component {
     };
 
     listTechnologies = (values) =>
-        values.map((x) => <Chip label={x} color='primary' className='chip' />);
+        values.map((x) => (
+            <Chip
+                size='small'
+                variant='outlined'
+                label={x}
+                color='primary'
+                className='chip'
+            />
+        ));
 
     render() {
         const { img, title, description, technologies } = this.props;
