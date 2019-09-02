@@ -24,7 +24,6 @@ const NavBarButton = (props) => {
     const scrollToTargetAdjusted = (element) => {
         const offset = 50;
         const elementPosition = element.offsetTop;
-        console.log(elementPosition);
         const offsetPosition = elementPosition - offset;
 
         window.scrollTo({
@@ -53,14 +52,14 @@ export class NavBar extends React.Component {
     };
 
     componentDidMount() {
-        document.addEventListener('scroll', () => {
+        window.onscroll = () => {
             const isTop = window.scrollY < 50;
             if (isTop) {
                 this.setState({ style: styles[0] });
             } else {
                 this.setState({ style: styles[1] });
             }
-        });
+        };
     }
 
     render() {

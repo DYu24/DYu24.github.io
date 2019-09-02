@@ -26,7 +26,11 @@ const ScrollTop = (props) => {
 
     return (
         <Zoom in={trigger}>
-            <div onClick={handleClick} role='presentation' className='fab-container'>
+            <div
+                onClick={handleClick}
+                role='presentation'
+                className='fab-container'
+            >
                 {children}
             </div>
         </Zoom>
@@ -34,6 +38,21 @@ const ScrollTop = (props) => {
 };
 
 class App extends React.Component {
+    componentDidMount() {
+        const hash = window.location.hash;
+        if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 50,
+                    behavior: 'smooth',
+                });
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }
+
     render() {
         return (
             <BrowserRouter>
