@@ -3,26 +3,26 @@ import { HashLink } from 'react-router-hash-link';
 import {
     AppBar,
     Button,
-    Slide,
     Toolbar,
-    useScrollTrigger,
 } from '@material-ui/core';
 
 import './NavBar.css';
 
-const HideOnScroll = (props) => {
-    const { children } = props;
-    const trigger = useScrollTrigger();
-
-    return (
-        <Slide appear={false} direction='down' in={!trigger}>
-            {children}
-        </Slide>
-    );
-};
 
 const NavBarButton = (props) => {
     const { to, text } = props;
+
+    const scrollToTargetAdjusted = (element) => {
+        const offset = 50;
+        const elementPosition = element.offsetTop;
+        console.log(elementPosition);
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+        });
+    }
 
     return (
         <Button
@@ -30,7 +30,7 @@ const NavBarButton = (props) => {
             color='inherit'
             component={HashLink}
             to={to}
-            smooth
+            scroll={scrollToTargetAdjusted}
         >
             {text}
         </Button>
@@ -48,15 +48,16 @@ export class NavBar extends React.Component {
     render() {
         const { style } = this.state;
         return (
-            <HideOnScroll {...this.props}>
-                <AppBar style={style}>
-                    <Toolbar className='navbar-container'>
-                        <NavBarButton to='#about-me' text='About Me' />
-                        <NavBarButton to='#work-experience' text='Work Experience' />
-                        <NavBarButton to='#projects' text='Projects' />
-                    </Toolbar>
-                </AppBar>
-            </HideOnScroll>
+            <AppBar style={style}>
+                <Toolbar className='navbar-container'>
+                    <NavBarButton to='#about-me' text='About Me' />
+                    <NavBarButton
+                        to='#work-experience'
+                        text='Work Experience'
+                    />
+                    <NavBarButton to='#projects' text='Projects' />
+                </Toolbar>
+            </AppBar>
         );
     }
 }

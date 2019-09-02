@@ -1,7 +1,13 @@
 import React from 'react';
 import Img from 'react-image';
 import { Particles } from 'react-particles-js';
+
 import './Landing.css';
+
+import githubLogo from '../../resources/github-logo.png';
+import linkedinLogo from '../../resources/linkedin-logo.png';
+import cvIcon from '../../resources/cv-icon.png';
+import resume from '../../resources/resume.pdf';
 
 export class Landing extends React.Component {
     render() {
@@ -70,7 +76,7 @@ export class Landing extends React.Component {
                         rel='noopener noreferrer'
                         className='icon-links'
                     >
-                        <Img src={require('../../resources/github-logo.png')} />
+                        <Img src={githubLogo} />
                     </a>
                     <a
                         href='https://www.linkedin.com/in/derek-yu/'
@@ -80,17 +86,17 @@ export class Landing extends React.Component {
                         className='icon-links'
                     >
                         <Img
-                            src={require('../../resources/linkedin-logo.png')}
+                            src={linkedinLogo}
                         />
                     </a>
                     <a
-                        href={require('../../resources/resume.pdf')}
+                        href={resume}
                         title='CV'
                         target='_blank'
                         rel='noopener noreferrer'
                         className='icon-links'
                     >
-                        <Img src={require('../../resources/cv-icon.png')} />
+                        <Img src={cvIcon} />
                     </a>
                 </div>
             </div>

@@ -4,19 +4,23 @@ import { ImageLoader } from '../common/ImageLoader';
 
 import './AboutMe.css';
 
+import concordiaLogo from '../../resources/concordia-logo.jpg';
+import marianopolisLogo from '../../resources/Marianopolis.png';
+import profilePicture from '../../resources/DSC_0376.jpg';
+
 const education = [
     {
         school: 'Concordia University',
         program: 'Software Engineering (BEng.)',
         period: '2016-2020 (Expected)',
-        img: require('../../resources/concordia-logo.jpg'),
+        img: concordiaLogo,
         url: 'https://www.concordia.ca/',
     },
     {
         school: 'Marianopolis College',
         program: 'Pure & Applied Sciences (DEC)',
         period: '2014-2016',
-        img: require('../../resources/Marianopolis.png'),
+        img: marianopolisLogo,
         url: 'http://www.marianopolis.edu/',
     },
 ];
@@ -60,7 +64,7 @@ export class AboutMe extends React.Component {
                     <div className='profile-picture-container'>
                         <ImageLoader
                             style={{ height: '70vh' }}
-                            src={require('../../resources/DSC_0376.jpg')}
+                            src={profilePicture}
                         />
                     </div>
 
@@ -80,9 +84,9 @@ export class AboutMe extends React.Component {
                             as TypeScript, Java and Python to name a few).
                         </p>
                         <p>
-                            Outside of my life of software development, I also
-                            love doing photography, travelling & exploring,
-                            eating, and following the latest tech news.
+                            Outside of my life of software development, my other 
+                            interests include photography, travelling & exploring, 
+                            music and eating <span role='img' aria-hidden={true}>🍕🍔🍜🍣</span>.
                         </p>
                         <h3>Education</h3>
                         <Grid container spacing={3}>
