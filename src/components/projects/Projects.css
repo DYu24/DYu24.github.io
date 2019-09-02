@@ -1,0 +1,14 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    padding-top: 1em;
+    padding-bottom: 3em;
+}
+
+.projects-contents {
+    max-width: 80vw;
+    margin-top: 2em;
+}

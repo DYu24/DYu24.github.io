@@ -1,0 +1,13 @@
+.work-experience-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    padding-top: 1em;
+}
+
+.work-experience-contents {
+    width: 80vw;
+    margin-left: 5em;
+}
