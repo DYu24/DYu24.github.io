@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { animateScroll } from 'react-scroll';
+import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
+import { ExpandLess } from '@material-ui/icons';
 
 import { NavBar } from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
@@ -10,13 +12,28 @@ import { Projects } from './components/projects/Projects';
 
 import './App.css';
 
-class App extends React.Component {
-    scrollToTop = () => {
+const ScrollTop = (props) => {
+    const { children } = props;
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+    });
+
+    const handleClick = () => {
         animateScroll.scrollToTop({
             smooth: 'easeOutCubic',
         });
     };
 
+    return (
+        <Zoom in={trigger}>
+            <div onClick={handleClick} role='presentation' className='fab-container'>
+                {children}
+            </div>
+        </Zoom>
+    );
+};
+
+class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
@@ -27,6 +44,11 @@ class App extends React.Component {
                     <WorkExperience />
                     <Projects />
 
+                    <ScrollTop {...this.props}>
+                        <Fab className='fab' color='secondary'>
+                            <ExpandLess />
+                        </Fab>
+                    </ScrollTop>
                 </div>
             </BrowserRouter>
         );

@@ -14,3 +14,9 @@ p {
     margin-top: -10px;
     margin-bottom: 1em;
 }
+
+.fab-container {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+}
