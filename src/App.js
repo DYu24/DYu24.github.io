@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { animateScroll, scrollSpy } from 'react-scroll';
 import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
 
@@ -25,8 +24,9 @@ const ScrollTop = (props) => {
             window.location.hash = '';
         }
 
-        animateScroll.scrollToTop({
-            smooth: 'easeOutCubic',
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
         });
     };
 
@@ -57,8 +57,6 @@ class App extends React.Component {
         } else {
             window.scrollTo(0, 0);
         }
-
-        scrollSpy.update();
     }
 
     render() {
