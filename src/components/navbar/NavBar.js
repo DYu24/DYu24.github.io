@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { AppBar, Button, Toolbar } from '@material-ui/core';
+import { AppBar, Button, Toolbar, makeStyles } from '@material-ui/core';
 
-import './NavBar.css';
-
-const styles = [
-    {
+const useStyles = makeStyles({
+    navBarTransparent: {
         background: 'transparent',
         boxShadow: 'none',
         color: 'white',
         transition: 'background-color 0.2s',
     },
-    {
+    navBarOpaque: {
         backgroundColor: 'white',
         color: 'black',
         transition: 'background-color 0.2s',
     },
-];
+    container: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    },
+});
 
 const NavBarButton = (props) => {
     const { to, text } = props;
@@ -45,37 +47,29 @@ const NavBarButton = (props) => {
     );
 };
 
-export class NavBar extends React.Component {
-    state = {
-        isTop: 0,
-        style: window.scrollY < 50 ? styles[0] : styles[1],
-    };
+const NavBar = () => {
+    const { navBarTransparent, navBarOpaque, container } = useStyles();
+    const [className, setClassName] = useState(navBarTransparent);
 
-    componentDidMount() {
+    useEffect(() => {
         window.onscroll = () => {
-            const isTop = window.scrollY < 50;
-            if (isTop) {
-                this.setState({ style: styles[0] });
+            if (window.scrollY < 50) {
+                setClassName(navBarTransparent);
             } else {
-                this.setState({ style: styles[1] });
+                setClassName(navBarOpaque);
             }
         };
-    }
+    });
 
-    render() {
-        const { style } = this.state;
+    return (
+        <AppBar className={className}>
+            <Toolbar className={container}>
+                <NavBarButton to='#about-me' text='About Me' />
+                <NavBarButton to='#work-experience' text='Work Experience' />
+                <NavBarButton to='#projects' text='Projects' />
+            </Toolbar>
+        </AppBar>
+    );
+};
 
-        return (
-            <AppBar style={style}>
-                <Toolbar className='navbar-container'>
-                    <NavBarButton to='#about-me' text='About Me' />
-                    <NavBarButton
-                        to='#work-experience'
-                        text='Work Experience'
-                    />
-                    <NavBarButton to='#projects' text='Projects' />
-                </Toolbar>
-            </AppBar>
-        );
-    }
-}
+export default NavBar;

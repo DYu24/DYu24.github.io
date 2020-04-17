@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
 
-import { NavBar } from './components/navbar/NavBar';
+import NavBar from './components/navbar/NavBar';
 import { Landing } from './components/landing/Landing';
 import { AboutMe } from './components/about-me/AboutMe';
 import { WorkExperience } from './components/work-experience/WorkExperience';
@@ -18,8 +18,8 @@ const ScrollTop = (props) => {
     });
 
     const handleClick = () => {
-        if(window.history.pushState) {
-            window.history.pushState('', '/', window.location.pathname)
+        if (window.history.pushState) {
+            window.history.pushState('', '/', window.location.pathname);
         } else {
             window.location.hash = '';
         }
@@ -43,8 +43,8 @@ const ScrollTop = (props) => {
     );
 };
 
-class App extends React.Component {
-    componentDidMount() {
+const App = (props) => {
+    useEffect(() => {
         const hash = window.location.hash;
         if (hash) {
             const element = document.querySelector(hash);
@@ -57,27 +57,25 @@ class App extends React.Component {
         } else {
             window.scrollTo(0, 0);
         }
-    }
+    }, []);
 
-    render() {
-        return (
-            <BrowserRouter>
-                <div className='App'>
-                    <NavBar />
-                    <Landing />
-                    <AboutMe />
-                    <WorkExperience />
-                    <Projects />
+    return (
+        <BrowserRouter>
+            <div className='App'>
+                <NavBar />
+                <Landing />
+                <AboutMe />
+                <WorkExperience />
+                <Projects />
 
-                    <ScrollTop {...this.props}>
-                        <Fab className='fab' color='secondary'>
-                            <ExpandLess />
-                        </Fab>
-                    </ScrollTop>
-                </div>
-            </BrowserRouter>
-        );
-    }
-}
+                <ScrollTop {...props}>
+                    <Fab className='fab' color='secondary'>
+                        <ExpandLess />
+                    </Fab>
+                </ScrollTop>
+            </div>
+        </BrowserRouter>
+    );
+};
 
 export default App;

@@ -24,6 +24,7 @@ export const theme = createMuiTheme({
           'Raleway',
           'Montserrat',
           'Poppins',
+          'Lora',
         ].join(','),
     },
 });
