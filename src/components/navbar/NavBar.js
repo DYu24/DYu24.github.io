@@ -7,12 +7,12 @@ const useStyles = makeStyles({
         background: 'transparent',
         boxShadow: 'none',
         color: 'white',
-        transition: 'background-color 0.2s',
+        transition: 'background-color 0.3s',
     },
     navBarOpaque: {
         backgroundColor: 'white',
         color: 'black',
-        transition: 'background-color 0.2s',
+        transition: 'background-color 0.3s',
     },
     container: {
         display: 'flex',
@@ -53,7 +53,7 @@ const NavBar = () => {
 
     useEffect(() => {
         window.onscroll = () => {
-            if (window.scrollY < 50) {
+            if (window.scrollY < window.innerHeight - 50) {
                 setClassName(navBarTransparent);
             } else {
                 setClassName(navBarOpaque);

@@ -4,10 +4,10 @@ import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
 
 import NavBar from './components/navbar/NavBar';
-import { Landing } from './components/landing/Landing';
+import Landing from './components/landing/Landing';
 import { AboutMe } from './components/about-me/AboutMe';
-import { WorkExperience } from './components/work-experience/WorkExperience';
-import { Projects } from './components/projects/Projects';
+// import { WorkExperience } from './components/work-experience/WorkExperience';
+// import { Projects } from './components/projects/Projects';
 
 import './App.css';
 
@@ -65,8 +65,9 @@ const App = (props) => {
                 <NavBar />
                 <Landing />
                 <AboutMe />
+                {/* <AboutMe />
                 <WorkExperience />
-                <Projects />
+                <Projects /> */}
 
                 <ScrollTop {...props}>
                     <Fab className='fab' color='secondary'>

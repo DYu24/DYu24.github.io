@@ -20,3 +20,7 @@ p {
     bottom: 2em;
     right: 2em;
 }
+
+::-webkit-scrollbar {
+    display:none;
+}
