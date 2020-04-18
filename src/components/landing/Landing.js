@@ -7,8 +7,7 @@ import githubLogo from '../../resources/github-logo.png';
 import linkedinLogo from '../../resources/linkedin-logo.png';
 import cvIcon from '../../resources/cv-icon.png';
 import resume from '../../resources/resume.pdf';
-
-import background from '../../resources/iceland-pool.JPG';
+import background from '../../resources/iceland-pool.jpg';
 
 const useStyles = makeStyles({
     landingContainer: {
