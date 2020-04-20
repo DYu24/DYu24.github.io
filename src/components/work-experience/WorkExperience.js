@@ -1,7 +1,7 @@
-import React from 'react';
-import { JobInfo } from './JobInfo';
-
-import './WorkExperience.css';
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/core';
+import { Parallax } from 'react-scroll-parallax';
+import JobInfo from './JobInfo';
 
 import dottLogo from '../../resources/dott-logo.png';
 import sqmLogo from '../../resources/sqm-logo.png';
@@ -42,33 +42,72 @@ const jobs = [
          solution to build and deploy customized OS images for simulator computers. This helped to drastically 
          decrease maintenance and deployment time of these images as the majority of manual work had been cut away.`,
         url: 'https://www.cae.com/',
-        technologies: ['PowerShell', 'Batch', 'VBScript', 'Microsoft Deployment Toolkit'],
+        technologies: [
+            'PowerShell',
+            'Batch',
+            'VBScript',
+            'Microsoft Deployment Toolkit',
+        ],
     },
 ];
 
-export class WorkExperience extends React.Component {
-    listJobs = () =>
-        jobs.map((job) => (
-            <JobInfo
-                company={job.company}
-                period={job.period}
-                position={job.position}
-                src={job.src}
-                description={job.description}
-                url={job.url}
-                technologies={job.technologies}
-            />
-        ));
+const useStyles = makeStyles({
+    workExperienceContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+        padding: '1em',
+    },
+    workExperienceContents: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '75vw',
+    },
+});
 
-    render() {
-        return (
-            <div className='work-experience-container' id='work-experience'>
-                <h1>WORK EXPERIENCE</h1>
+const WorkExperience = () => {
+    const { workExperienceContainer, workExperienceContents } = useStyles();
+
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const onWorkExperienceEnter = () => {
+            const position = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            if (position > 1.75 * windowHeight && position < 3 * windowHeight) {
+                setShow(true);
+            }
+        };
+
+        window.addEventListener('scroll', onWorkExperienceEnter);
+
+        return () => {
+            window.removeEventListener('scroll', onWorkExperienceEnter);
+        };
+    });
+
+    const listJobs = () => {
+        let timeout = 0;
+        return jobs.map((job) => {
+            const element = <JobInfo job={job} show={show} timeout={timeout} />;
+            timeout += 500;
+            return element;
+        });
+    };
+
+    return (
+        <div className={workExperienceContainer} id='work-experience'>
+            <h1>WORK EXPERIENCE</h1>
+            <Parallax x={['75%', '-25%']}>
                 <div className='underline' />
-                <div className='work-experience-contents'>
-                    {this.listJobs()}
-                </div>
-            </div>
-        );
-    }
-}
+            </Parallax>
+            <div className={workExperienceContents}>{listJobs()}</div>
+        </div>
+    );
+};
+
+export default WorkExperience;
