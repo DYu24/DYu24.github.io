@@ -1,80 +1,107 @@
-import React from 'react';
-import { Card, CardContent, CardMedia, Grid } from '@material-ui/core';
-import { ImageLoader } from '../common/ImageLoader';
+import React, { useEffect, useState } from 'react';
+import Img from 'react-image';
+import { Fade, Link, makeStyles } from '@material-ui/core';
+import { Parallax } from 'react-scroll-parallax';
 
-import './AboutMe.css';
-
-import concordiaLogo from '../../resources/concordia-logo.jpg';
-import marianopolisLogo from '../../resources/Marianopolis.png';
 import profilePicture from '../../resources/DSC_0376.jpg';
 
-const education = [
-    {
-        school: 'Concordia University',
-        program: 'Software Engineering (BEng.)',
-        period: '2016-2020 (Expected)',
-        img: concordiaLogo,
-        url: 'https://www.concordia.ca/',
+const useStyles = makeStyles({
+    aboutMeContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        padding: '1em',
     },
-    {
-        school: 'Marianopolis College',
-        program: 'Pure & Applied Sciences (DEC)',
-        period: '2014-2016',
-        img: marianopolisLogo,
-        url: 'http://www.marianopolis.edu/',
+    content: {
+        display: 'flex',
+        padding: '2em',
     },
-];
+    profilePictureContainer: {
+        height: '60vh',
+        position: 'relative',
+        margin: '0em 3em',
+        '& Img': {
+            height: '100%',
+        },
+    },
+    description: {
+        width: '40vw',
+        position: 'relative',
+        wordWrap: 'break-word',
+        textAlign: 'justify',
+        fontSize: '2.5vh',
+        margin: '0em 1em',
+    },
+});
 
-export class AboutMe extends React.Component {
-    listEducation = () =>
-        education.map((x) => (
-            <Grid item xs={6}>
-                <Card
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <a href={x.url} title={x.url} target='_blank' rel='noopener noreferrer'>
-                        <CardMedia
-                            style={{ height: '70px', width: '70px' }}
-                            image={x.img}
-                        />
-                    </a>
-                    <CardContent>
-                        <h5>{x.school}</h5>
-                        <div className='education-subcontents'>
-                            {x.program}
-                            <br />
-                            <em>{x.period}</em>
-                        </div>
-                    </CardContent>
-                </Card>
-            </Grid>
-        ));
+const AboutMe = () => {
+    const {
+        aboutMeContainer,
+        content,
+        profilePictureContainer,
+        description,
+    } = useStyles();
 
-    render() {
-        return (
-            <div className='about-me-container' id='about-me'>
-                <h1>ABOUT ME</h1>
+    const [show, setShow] = useState(false);
+    const [imageLoaded, setIsImageLoaded] = useState(false);
+    const [displayDescription, setDisplayDescription] = useState(false);
+
+    useEffect(() => {
+        const onAboutMeEnter = () => {
+            const position = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            if (position > 0.5 * windowHeight && position < 2 * windowHeight) {
+                setShow(true);
+            }
+        };
+
+        window.addEventListener('scroll', onAboutMeEnter);
+
+        return () => {
+            window.removeEventListener('scroll', onAboutMeEnter);
+        };
+    });
+
+    useEffect(() => {
+        if (show && imageLoaded) {
+            setTimeout(() => setDisplayDescription(true), 1000);
+        }
+    }, [show, imageLoaded]);
+
+    const handleOnLoad = () => {
+        setIsImageLoaded(true);
+    };
+
+    return (
+        <div className={aboutMeContainer} id='about-me'>
+            <h1>ABOUT ME</h1>
+            <Parallax x={['-75%', '25%']}>
                 <div className='underline' />
-                <div className='content'>
-                    <div className='profile-picture-container'>
-                        <ImageLoader
-                            style={{ height: '70vh' }}
-                            src={profilePicture}
-                        />
+            </Parallax>
+            <div className={content}>
+                <Fade in={show && imageLoaded}>
+                    <div className={profilePictureContainer}>
+                        <Img src={profilePicture} onLoad={handleOnLoad} />
                     </div>
-
-                    <div className='description'>
+                </Fade>
+                <Fade in={show && displayDescription}>
+                    <div className={description}>
                         <p>
-                            I'm a fourth-year software engineering student at
-                            Concordia University in Montreal, Canada. I first
-                            got into programming when I joined the robotics team
-                            at school and instantly fell in love with all the
-                            creative possibilities that came with coding.
+                            I'm a fourth-year software engineering student at{' '}
+                            <Link
+                                href='https://www.concordia.ca/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                Concordia University
+                            </Link>{' '}
+                            in Montreal, Canada. I first got into programming
+                            when I joined the robotics team at school and
+                            instantly fell in love with all the creative
+                            possibilities that came with coding.
                         </p>
                         <p>
                             I find myself drawn to backend development as I'm
@@ -84,17 +111,18 @@ export class AboutMe extends React.Component {
                             as TypeScript, Java and Python to name a few).
                         </p>
                         <p>
-                            Outside of my life of software development, my other 
-                            interests include photography, travelling & exploring, 
-                            music and eating <span role='img' aria-hidden={true}>🍕🍔🍜🍣</span>.
+                            Outside of my life of software development, my other
+                            interests include photography, travelling &
+                            exploring, music and eating{' '}
+                            <span role='img' aria-hidden={true}>
+                                🍕🍔🍜🍣
+                            </span>
                         </p>
-                        <h3>Education</h3>
-                        <Grid container spacing={3}>
-                            {this.listEducation()}
-                        </Grid>
                     </div>
-                </div>
+                </Fade>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+export default AboutMe;

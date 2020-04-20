@@ -10,7 +10,8 @@ const useStyles = makeStyles({
         transition: 'background-color 0.3s',
     },
     navBarOpaque: {
-        backgroundColor: 'white',
+        background: 'transparent',
+        boxShadow: 'none',
         color: 'black',
         transition: 'background-color 0.3s',
     },
@@ -24,12 +25,8 @@ const NavBarButton = (props) => {
     const { to, text } = props;
 
     const scrollToTargetAdjusted = (element) => {
-        const offset = 50;
-        const elementPosition = element.offsetTop;
-        const offsetPosition = elementPosition - offset;
-
         window.scrollTo({
-            top: offsetPosition,
+            top: element.offsetTop,
             behavior: 'smooth',
         });
     };
@@ -52,12 +49,18 @@ const NavBar = () => {
     const [className, setClassName] = useState(navBarTransparent);
 
     useEffect(() => {
-        window.onscroll = () => {
-            if (window.scrollY < window.innerHeight - 50) {
+        const handleScroll = () => {
+            if (window.pageYOffset < window.innerHeight - 25) {
                 setClassName(navBarTransparent);
             } else {
                 setClassName(navBarOpaque);
             }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
         };
     });
 

@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
+import { withController } from 'react-scroll-parallax';
 
 import NavBar from './components/navbar/NavBar';
 import Landing from './components/landing/Landing';
-import { AboutMe } from './components/about-me/AboutMe';
-// import { WorkExperience } from './components/work-experience/WorkExperience';
+import AboutMe from './components/about-me/AboutMe';
+import { WorkExperience } from './components/work-experience/WorkExperience';
 // import { Projects } from './components/projects/Projects';
 
 import './App.css';
@@ -50,7 +51,7 @@ const App = (props) => {
             const element = document.querySelector(hash);
             if (element) {
                 window.scrollTo({
-                    top: element.offsetTop - 50,
+                    top: element.offsetTop,
                     behavior: 'smooth',
                 });
             }
@@ -59,12 +60,19 @@ const App = (props) => {
         }
     }, []);
 
+    useLayoutEffect(() => {
+        const handler = () => props.parallaxController.update();
+        window.addEventListener('load', handler);
+        return () => window.removeEventListener('load', handler);
+    }, [props.parallaxController]);
+
     return (
         <BrowserRouter>
             <div className='App'>
                 <NavBar />
                 <Landing />
                 <AboutMe />
+                <WorkExperience />
                 {/* <AboutMe />
                 <WorkExperience />
                 <Projects /> */}
@@ -79,4 +87,4 @@ const App = (props) => {
     );
 };
 
-export default App;
+export default withController(App);
