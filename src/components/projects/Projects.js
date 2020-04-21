@@ -46,7 +46,7 @@ const Projects = () => {
         let timeout = 0;
         return projects.map((project) => {
             const element = (<Grid item xs={4}><ProjectInfo project={project} show={show} timeout={timeout} /></Grid>)
-            timeout += 500;
+            timeout += 250;
             return element;
         })
     };

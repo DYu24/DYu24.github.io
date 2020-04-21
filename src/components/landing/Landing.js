@@ -1,5 +1,5 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Fade, Grow, makeStyles } from '@material-ui/core';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import Img from 'react-image';
 
@@ -46,6 +46,10 @@ const useStyles = makeStyles({
 const Landing = () => {
     const { divider, icons, iconLinks, landingContainer } = useStyles();
 
+    const [githubLoaded, setGithubLoaded] = useState(false);
+    const [linkedinLoaded, setLinkedinLoaded] = useState(false);
+    const [cvLoaded, setCvLoaded] = useState(false);
+
     return (
         <div>
             <ParallaxBanner
@@ -57,44 +61,75 @@ const Landing = () => {
                 ]}
                 style={{ height: '100vh' }}
             >
-                <div className={landingContainer}>
-                    <h1>Derek Yu</h1>
-                    <h2>Software Engineering Student</h2>
-                    <div className={divider}></div>
-                    <div className={icons}>
-                        <a
-                            href='https://github.com/DYu24'
-                            title='https://github.com/DYU24'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className={iconLinks}
-                        >
-                            <Img src={githubLogo} width='32px' height='32px' />
-                        </a>
-                        <a
-                            href='https://www.linkedin.com/in/derek-yu/'
-                            title='https://www.linkedin.com/in/derek-yu/'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className={iconLinks}
-                        >
-                            <Img
-                                src={linkedinLogo}
-                                width='32px'
-                                height='32px'
-                            />
-                        </a>
-                        <a
-                            href={resume}
-                            title='CV'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className={iconLinks}
-                        >
-                            <Img src={cvIcon} width='32px' height='32px' />
-                        </a>
+                <Fade in={true} timeout={1000} style={{ transitionDelay: '500ms' }}>
+                    <div className={landingContainer}>
+                        <h1>Derek Yu</h1>
+                        <h2>Software Engineering Student</h2>
+                        <div className={divider}></div>
+                        <div className={icons}>
+                            <Grow
+                                in={githubLoaded && linkedinLoaded && cvLoaded}
+                                timeout={500}
+                                style={{ transitionDelay: '1000ms' }}
+                            >
+                                <a
+                                    href='https://github.com/DYu24'
+                                    title='https://github.com/DYU24'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className={iconLinks}
+                                >
+                                    <Img
+                                        src={githubLogo}
+                                        width='32px'
+                                        height='32px'
+                                        onLoad={() => setGithubLoaded(true)}
+                                    />
+                                </a>
+                            </Grow>
+                            <Grow
+                                in={githubLoaded && linkedinLoaded && cvLoaded}
+                                timeout={500}
+                                style={{ transitionDelay: '1250ms' }}
+                            >
+                                <a
+                                    href='https://www.linkedin.com/in/derek-yu/'
+                                    title='https://www.linkedin.com/in/derek-yu/'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className={iconLinks}
+                                >
+                                    <Img
+                                        src={linkedinLogo}
+                                        width='32px'
+                                        height='32px'
+                                        onLoad={() => setLinkedinLoaded(true)}
+                                    />
+                                </a>
+                            </Grow>
+                            <Grow
+                                in={githubLoaded && linkedinLoaded && cvLoaded}
+                                timeout={500}
+                                style={{ transitionDelay: '1500ms' }}
+                            >
+                                <a
+                                    href={resume}
+                                    title='CV'
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className={iconLinks}
+                                >
+                                    <Img
+                                        src={cvIcon}
+                                        width='32px'
+                                        height='32px'
+                                        onLoad={() => setCvLoaded(true)}
+                                    />
+                                </a>
+                            </Grow>
+                        </div>
                     </div>
-                </div>
+                </Fade>
             </ParallaxBanner>
         </div>
     );
