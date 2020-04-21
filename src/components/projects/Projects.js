@@ -12,10 +12,10 @@ const useStyles = makeStyles({
         alignItems: 'center',
         height: '100%',
         marginTop: '5em',
-        paddingBottom: '3em',
+        padding: '3em',
     },
     projectsContent: {
-        maxWidth: '80vw',
+        maxWidth: '75vw',
         marginTop: '2em',
     },
 });

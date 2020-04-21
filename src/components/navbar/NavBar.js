@@ -8,9 +8,6 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: 'none',
         color: 'white',
         transition: 'background-color 0.5s',
-        '& .active': {
-            color: theme.palette.primary.main,
-        },
     },
     navBarBlack: {
         background: 'transparent',
@@ -29,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
         '& div': {
             marginBottom: '0.5em',
             cursor: 'pointer',
+            fontSize: '1.2em',
+            fontWeight: 600, 
         },
     },
 }));

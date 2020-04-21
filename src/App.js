@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Fab, useScrollTrigger, Zoom } from '@material-ui/core';
+import { Fab, useScrollTrigger, Zoom, makeStyles } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
 import { withController } from 'react-scroll-parallax';
 
@@ -10,10 +10,40 @@ import AboutMe from './components/about-me/AboutMe';
 import WorkExperience from './components/work-experience/WorkExperience';
 import Projects from './components/projects/Projects';
 
-import './App.css';
+const useStyles = makeStyles((theme) => ({
+    '@global': {
+        body: {
+            fontFamily: 'Raleway',
+            fontWeight: 500,
+        },
+        p: {
+            lineHeight: 1.5,
+        },
+        '* .underline': {
+            height: '4px',
+            width: '100px',
+            background: theme.palette.primary.main,
+            marginBottom: '1em',
+        },
+        '* ::-webkit-scrollbar': {
+            display: 'none',
+        },
+    },
+}));
+
+const fabStyle = makeStyles({
+    fabContainer: {
+        position: 'fixed',
+        bottom: '2em',
+        right: '2em',
+    },
+});
 
 const ScrollTop = (props) => {
     const { children } = props;
+
+    const { fabContainer } = fabStyle();
+
     const trigger = useScrollTrigger({
         disableHysteresis: true,
     });
@@ -36,7 +66,7 @@ const ScrollTop = (props) => {
             <div
                 onClick={handleClick}
                 role='presentation'
-                className='fab-container'
+                className={fabContainer}
             >
                 {children}
             </div>
@@ -45,6 +75,8 @@ const ScrollTop = (props) => {
 };
 
 const App = (props) => {
+    const App = useStyles();
+
     useEffect(() => {
         const hash = window.location.hash;
         if (hash) {
@@ -68,7 +100,7 @@ const App = (props) => {
 
     return (
         <BrowserRouter>
-            <div className='App'>
+            <div className={App}>
                 <NavBar />
                 <Landing />
                 <AboutMe />
@@ -76,8 +108,13 @@ const App = (props) => {
                 <Projects />
 
                 <ScrollTop {...props}>
-                    <Fab className='fab' color='primary'>
-                        <ExpandLess />
+                    <Fab
+                        className='fab'
+                        color='primary'
+                        variant='extended'
+                        size='medium'
+                    >
+                        <ExpandLess /> BACK TO TOP
                     </Fab>
                 </ScrollTop>
             </div>

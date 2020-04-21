@@ -11,7 +11,7 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
-        padding: '1em',
+        padding: '3em',
     },
     workExperienceContents: {
         display: 'flex',
