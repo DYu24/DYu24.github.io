@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         height: 60,
         position: 'absolute',
         top: '0.5em',
-        right: '0.5em',
+        right: 0,
     },
     projectInfoLinks: {
         marginTop: '-1em',
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     chip: {
         margin: '0.1em',
         borderRadius: 5,
+        fontFamily: 'Lora',
     },
 }));
 

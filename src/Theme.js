@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core';
 export const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#0f6394',
+            main: '#00629c',
         },
     },
     typography: {
@@ -22,6 +22,7 @@ export const theme = createMuiTheme({
           'Montserrat',
           'Poppins',
           'Lora',
+          'Cormorant Garamond'
         ].join(','),
     },
 });

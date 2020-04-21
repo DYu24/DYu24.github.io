@@ -13,8 +13,8 @@ import Projects from './components/projects/Projects';
 const useStyles = makeStyles((theme) => ({
     '@global': {
         body: {
-            fontFamily: 'Raleway',
-            fontWeight: 500,
+            fontFamily: 'Lora',
+            fontWeight: 400,
         },
         p: {
             lineHeight: 1.5,
@@ -36,6 +36,10 @@ const fabStyle = makeStyles({
         position: 'fixed',
         bottom: '2em',
         right: '2em',
+        '& span': {
+            fontFamily: 'Lora',
+            fontWeight: 600,
+        },
     },
 });
 

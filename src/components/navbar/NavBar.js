@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
             marginBottom: '0.5em',
             cursor: 'pointer',
             fontSize: '1.2em',
-            fontWeight: 600, 
+            fontWeight: 550, 
         },
     },
 }));

@@ -1,4 +1,4 @@
-import smartboxLogo from '../../resources/smart-box-logo.png'
+import smartboxLogo from '../../resources/smart-box-logo.png';
 import rudatingLogo from '../../resources/rudating.png';
 import tapOfWarLogo from '../../resources/TapOfWarLogo.png';
 import captionThisLogo from '../../resources/caption-this-logo.png';
@@ -13,7 +13,15 @@ const projects = [
         devpost: 'https://devpost.com/software/smartbox-delivery',
         description: `An end-to-end system that allows independent couriers to easily and securely deliver your 
         packages in smart mailboxes. First place winner at UOttaHack3.`,
-        technologies: ['JavaScript', 'Python', 'Node.Js', 'React', 'Arduino']
+        technologies: [
+            'JavaScript',
+            'Python',
+            'Node.Js',
+            'React',
+            'Arduino',
+            'Google Cloud Platform',
+            'Solace PubSub+',
+        ],
     },
     {
         img: rudatingLogo,
@@ -27,7 +35,7 @@ const projects = [
             'JavaScript',
             'Flask',
             'React',
-            'Google Cloud',
+            'Google Cloud Platform',
         ],
     },
     {
@@ -37,7 +45,7 @@ const projects = [
         devpost: 'https://devpost.com/software/tap-of-war',
         description: `A tug-of-war inspired game where users on opposing teams continuously tap to 
         dominate Nanoleaf light panels with their team's color.`,
-        technologies: ['JavaScript', 'Node.Js', 'React', 'WebSockets'],
+        technologies: ['JavaScript', 'Node.Js', 'React'],
     },
     {
         img: wikipediaLogo,
