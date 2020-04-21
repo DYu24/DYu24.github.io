@@ -1,79 +1,69 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
-import { ProjectInfo } from './ProjectInfo';
+import React, { useEffect, useState } from 'react';
+import { Parallax } from 'react-scroll-parallax';
+import { Grid, makeStyles } from '@material-ui/core';
+import ProjectInfo from './ProjectInfo';
+import projects from './ProjectList';
 
-import './Projects.css';
-
-import rudatingLogo from '../../resources/rudating.png';
-import tapOfWarLogo from '../../resources/TapOfWarLogo.png';
-import captionThisLogo from '../../resources/caption-this-logo.png';
-import chefPicLogo from '../../resources/chefpic-logo.png';
-
-const projects = [
-    {
-        img: rudatingLogo,
-        title: 'RUDating',
-        url: 'https://github.com/DYu24/rudating',
-        description: `A speed dating web application where users have 2 minutes to converse, after which 
-        they can decide whether or not they'd like to exchange contact information to keep talking. 
-        This web application makes use of a chatroom that was built from scratch using WebSockets, 
-        and also uses Google's Cloud Natural Language to calculate the "chemistry" between the two 
-        users during the conversation.`,
-        technologies: ['Python', 'JavaScript', 'Flask', 'React', 'Google Cloud Platform'],
+const useStyles = makeStyles({
+    projectsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        height: '100%',
+        marginTop: '5em',
+        paddingBottom: '3em',
     },
-    {
-        img: tapOfWarLogo,
-        title: 'Tap of War',
-        url: 'https://github.com/DYu24/tap-of-war',
-        description: `A tug-of-war inspired game where users on opposing teams continuously tap to 
-        dominate Nanoleaf light panels with their team's color. Whoever registers the most amount of 
-        taps wins the game.`,
-        technologies: ['JavaScript', 'Node.Js', 'React', 'WebSockets'],
+    projectsContent: {
+        maxWidth: '80vw',
+        marginTop: '2em',
     },
-    {
-        img: captionThisLogo,
-        title: 'CaptionThis',
-        url: 'https://github.com/DYu24/CaptionThis',
-        description: `A website that allows users to post their own pictures and let the community come up 
-        with fun and interesting captions. In addition to uploading photos and submitting captions, 
-        users can also interact with these posts by voting on their favourite captions.`,
-        technologies: ['JavaScript', 'Node.Js', 'React'],
-    },
-    {
-        img: chefPicLogo,
-        title: 'ChefPic',
-        url: 'https://github.com/DYu24/ChefPic',
-        description: `Android application that allows a user to take a picture of an unknown dish and 
-        returns the name of that dish, as well as a recipe for how to prepare it.`,
-        technologies: ['Java', 'Android', 'IBM Watson'],
-    },
-];
+});
 
-export class Projects extends React.Component {
-    listProjects = () =>
-        projects.map((project) => (
-            <Grid item xs={4}>
-                <ProjectInfo
-                    img={project.img}
-                    title={project.title}
-                    description={project.description}
-                    url={project.url}
-                    technologies={project.technologies}
-                />
-            </Grid>
-        ));
+const Projects = () => {
+    const { projectsContainer, projectsContent } = useStyles();
 
-    render() {
-        return (
-            <div className='projects-container' id='projects'>
-                <h1>PROJECTS</h1>
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const onProjectsEnter = () => {
+            const position = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+
+            if (position > 3.25 * windowHeight) {
+                setShow(true);
+            }
+        };
+
+        window.addEventListener('scroll', onProjectsEnter);
+
+        return () => {
+            window.removeEventListener('scroll', onProjectsEnter);
+        };
+    });
+
+    const listProjects = () => {
+        let timeout = 0;
+        return projects.map((project) => {
+            const element = (<Grid item xs={4}><ProjectInfo project={project} show={show} timeout={timeout} /></Grid>)
+            timeout += 500;
+            return element;
+        })
+    };
+
+    return (
+        <div className={projectsContainer} id='projects'>
+            <h1>PROJECTS</h1>
+            <Parallax x={['-75%', '25%']}>
                 <div className='underline' />
-                <div className='projects-contents'>
-                    <Grid container spacing={5}>
-                        {this.listProjects()}
-                    </Grid>
-                </div>
+            </Parallax>
+            <div className={projectsContent}>
+                <Grid container spacing={3}>
+                    {listProjects()}
+                </Grid>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+export default Projects;

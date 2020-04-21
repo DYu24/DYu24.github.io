@@ -8,7 +8,7 @@ import NavBar from './components/navbar/NavBar';
 import Landing from './components/landing/Landing';
 import AboutMe from './components/about-me/AboutMe';
 import WorkExperience from './components/work-experience/WorkExperience';
-// import { Projects } from './components/projects/Projects';
+import Projects from './components/projects/Projects';
 
 import './App.css';
 
@@ -73,9 +73,7 @@ const App = (props) => {
                 <Landing />
                 <AboutMe />
                 <WorkExperience />
-                {/* <AboutMe />
-                <WorkExperience />
-                <Projects /> */}
+                <Projects />
 
                 <ScrollTop {...props}>
                     <Fab className='fab' color='primary'>

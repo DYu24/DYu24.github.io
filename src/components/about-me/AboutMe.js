@@ -53,7 +53,7 @@ const AboutMe = () => {
             const position = window.pageYOffset;
             const windowHeight = window.innerHeight;
 
-            if (position > 0.5 * windowHeight && position < 2 * windowHeight) {
+            if (position > 0.5 * windowHeight) {
                 setShow(true);
             }
         };

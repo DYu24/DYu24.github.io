@@ -34,6 +34,7 @@ const useStyles = makeStyles({
     },
     chip: {
         margin: '0.2em',
+        borderRadius: 5,
     },
 });
 
