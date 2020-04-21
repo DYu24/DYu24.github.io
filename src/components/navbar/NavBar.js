@@ -1,59 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
-import { AppBar, Button, Toolbar, makeStyles } from '@material-ui/core';
+import { Link } from 'react-scroll';
+import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles({
-    navBarTransparent: {
+const useStyles = makeStyles((theme) => ({
+    navBarWhite: {
         background: 'transparent',
         boxShadow: 'none',
         color: 'white',
-        transition: 'background-color 0.3s',
+        transition: 'background-color 0.5s',
+        '& .active': {
+            color: theme.palette.primary.main,
+        },
     },
-    navBarOpaque: {
+    navBarBlack: {
         background: 'transparent',
         boxShadow: 'none',
         color: 'black',
-        transition: 'background-color 0.3s',
+        transition: 'background-color 0.5s',
+        '& .active': {
+            color: theme.palette.primary.main,
+        },
     },
     container: {
         display: 'flex',
-        justifyContent: 'flex-end',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        padding: '1em',
+        '& div': {
+            marginBottom: '0.5em',
+            cursor: 'pointer',
+        },
     },
-});
+}));
 
-const NavBarButton = (props) => {
-    const { to, text } = props;
-
-    const scrollToTargetAdjusted = (element) => {
-        window.scrollTo({
-            top: element.offsetTop,
-            behavior: 'smooth',
-        });
-    };
-
+const NavBarLink = ({ to, text }) => {
     return (
-        <Button
-            className='navBar-elements'
-            color='inherit'
-            component={HashLink}
-            to={to}
-            scroll={scrollToTargetAdjusted}
-        >
-            {text}
-        </Button>
+        <div>
+            <Link
+                activeClass='active'
+                to={to}
+                spy={true}
+                hashSpy={true}
+                smooth={true}
+                duration={500}
+                offset={10}
+            >
+                {text}
+            </Link>
+        </div>
     );
 };
 
 const NavBar = () => {
-    const { navBarTransparent, navBarOpaque, container } = useStyles();
-    const [className, setClassName] = useState(navBarTransparent);
+    const { navBarWhite, navBarBlack, container } = useStyles();
+    const [className, setClassName] = useState(navBarWhite);
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.pageYOffset < window.innerHeight - 25) {
-                setClassName(navBarTransparent);
+                setClassName(navBarWhite);
             } else {
-                setClassName(navBarOpaque);
+                setClassName(navBarBlack);
             }
         };
 
@@ -67,9 +74,9 @@ const NavBar = () => {
     return (
         <AppBar className={className}>
             <Toolbar className={container}>
-                <NavBarButton to='#about-me' text='About Me' />
-                <NavBarButton to='#work-experience' text='Work Experience' />
-                <NavBarButton to='#projects' text='Projects' />
+                <NavBarLink to='about-me' text='About Me' />
+                <NavBarLink to='work-experience' text='Work Experience' />
+                <NavBarLink to='projects' text='Projects' />
             </Toolbar>
         </AppBar>
     );
