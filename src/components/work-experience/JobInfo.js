@@ -7,13 +7,10 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '60vw',
     },
     jobInfoContent: {
-        flexBasis: '65%',
         wordWrap: 'break-word',
         textAlign: 'justify',
-        fontSize: '2.5vh',
         '& h2 a': {
             color: 'inherit',
             textDecoration: 'none',
@@ -27,9 +24,11 @@ const useStyles = makeStyles({
         },
     },
     jobInfoVisual: {
+        marginLeft: '5%',
         '& Img': {
-            maxHeight: '200px',
-            maxWidth: '200px',
+            maxWidth: '600px',
+            minWidth: '100px',
+            width: '100%',
         }
     },
     chip: {
@@ -64,6 +63,7 @@ const JobInfo = ({ job, show, timeout }) => {
     const listTechnologies = (values) =>
         values.map((x) => (
             <Chip
+                key={x}
                 size='small'
                 variant='outlined'
                 label={x}

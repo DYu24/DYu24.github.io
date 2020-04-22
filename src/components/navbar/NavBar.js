@@ -10,24 +10,22 @@ const useStyles = makeStyles((theme) => ({
         transition: 'background-color 0.5s',
     },
     navBarBlack: {
-        background: 'transparent',
-        boxShadow: 'none',
-        color: 'black',
+        backgroundColor: 'black',
+        color: 'white',
         transition: 'background-color 0.5s',
         '& .active': {
-            color: theme.palette.primary.main,
+            padddingBottom: '2.5px',
+            borderBottom: '1.5px solid white',
         },
     },
     container: {
+        minHeight: '50px',
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        padding: '1em',
+        justifyContent: 'flex-end',
         '& div': {
-            marginBottom: '0.5em',
+            margin: '0.5em',
             cursor: 'pointer',
-            fontSize: '1.2em',
-            fontWeight: 550, 
+            fontWeight: 500, 
         },
     },
 }));
@@ -42,7 +40,7 @@ const NavBarLink = ({ to, text }) => {
                 hashSpy={true}
                 smooth={true}
                 duration={500}
-                offset={10}
+                offset={5}
             >
                 {text}
             </Link>
@@ -56,7 +54,7 @@ const NavBar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.pageYOffset < window.innerHeight - 25) {
+            if (window.pageYOffset < window.innerHeight - 50) {
                 setClassName(navBarWhite);
             } else {
                 setClassName(navBarBlack);

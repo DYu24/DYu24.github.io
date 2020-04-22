@@ -11,13 +11,16 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
+        minHeight: '100vh',
         padding: '3em',
+        '& h1': {
+            textAlign: 'center',
+        }
     },
     workExperienceContents: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        width: '75vw',
+        width: '65vw',
     },
 });
 
@@ -46,7 +49,7 @@ const WorkExperience = () => {
     const listJobs = () => {
         let timeout = 0;
         return jobs.map((job) => {
-            const element = <JobInfo job={job} show={show} timeout={timeout} />;
+            const element = <JobInfo key={job.company} job={job} show={show} timeout={timeout} />;
             timeout += 500;
             return element;
         });

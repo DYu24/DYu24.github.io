@@ -12,15 +12,14 @@ import {
 
 const useStyles = makeStyles((theme) => ({
     projectInfoContainer: {
-        position: 'relative',
+        flexBasis: '30%',
+        flexGrow: 1,
+        padding: '0.5em',
+        minWidth: '350px',
     },
     projectInfoCard: {
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '25vw',
-        '& h2': {
-            fontSize: '1.5vw',
-        },
     },
     projectInfoHeader: {
         display: 'flex',
@@ -28,9 +27,6 @@ const useStyles = makeStyles((theme) => ({
     },
     projectInfoLogo: {
         height: 60,
-        position: 'absolute',
-        top: '0.5em',
-        right: 0,
     },
     projectInfoLinks: {
         marginTop: '-1em',
@@ -70,6 +66,7 @@ const ProjectInfo = ({ project, show, timeout }) => {
     const listTechnologies = (values) =>
         values.map((x) => (
             <Chip
+                key={x}
                 size='small'
                 variant='outlined'
                 label={x}

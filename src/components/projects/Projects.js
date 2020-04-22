@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Parallax } from 'react-scroll-parallax';
-import { Grid, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import ProjectInfo from './ProjectInfo';
 import projects from './ProjectList';
 
@@ -8,14 +8,17 @@ const useStyles = makeStyles({
     projectsContainer: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         alignItems: 'center',
+        minHeight: '100vh',
         height: '100%',
-        marginTop: '5em',
-        padding: '3em',
+        padding: '3em 0 5em 0',
     },
     projectsContent: {
-        maxWidth: '75vw',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+        maxWidth: '80vw',
         marginTop: '2em',
     },
 });
@@ -30,7 +33,7 @@ const Projects = () => {
             const position = window.pageYOffset;
             const windowHeight = window.innerHeight;
 
-            if (position > 3.25 * windowHeight) {
+            if (position > 3 * windowHeight) {
                 setShow(true);
             }
         };
@@ -45,10 +48,12 @@ const Projects = () => {
     const listProjects = () => {
         let timeout = 0;
         return projects.map((project) => {
-            const element = (<Grid item xs={4}><ProjectInfo project={project} show={show} timeout={timeout} /></Grid>)
+            const element = (
+                <ProjectInfo key={project.title} project={project} show={show} timeout={timeout} />
+            );
             timeout += 250;
             return element;
-        })
+        });
     };
 
     return (
@@ -58,9 +63,7 @@ const Projects = () => {
                 <div className='underline' />
             </Parallax>
             <div className={projectsContent}>
-                <Grid container spacing={3}>
-                    {listProjects()}
-                </Grid>
+                {listProjects()}
             </div>
         </div>
     );

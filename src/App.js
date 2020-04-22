@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme) => ({
             fontWeight: 400,
         },
         p: {
+            fontSize: '1.1em',
             lineHeight: 1.5,
+        },
+        '* h1, h2, h3, h5': {
+            fontWeight: 400,
         },
         '* .underline': {
             height: '4px',

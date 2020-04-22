@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Fade, Grow, makeStyles } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Fade, Grow, makeStyles, useTheme } from '@material-ui/core';
 import { ParallaxBanner } from 'react-scroll-parallax';
 import Img from 'react-image';
 
@@ -19,12 +19,12 @@ const useStyles = makeStyles({
         textAlign: 'center',
         color: 'white',
         '& h1': {
-            fontSize: '4.5vw',
+            fontSize: '5vmax',
             zIndex: 1,
         },
         '& h2': {
-            fontSize: '3vw',
-            marginTop: '-0.5em',
+            fontSize: '3vmax',
+            marginTop: '-1em',
             zIndex: 1,
         },
     },
@@ -45,10 +45,26 @@ const useStyles = makeStyles({
 
 const Landing = () => {
     const { divider, icons, iconLinks, landingContainer } = useStyles();
+    const theme = useTheme();
 
     const [githubLoaded, setGithubLoaded] = useState(false);
     const [linkedinLoaded, setLinkedinLoaded] = useState(false);
     const [cvLoaded, setCvLoaded] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const scrollListener = () => {
+            const position = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            setScrollPosition(Math.min(100, (100 * position) / windowHeight));
+        };
+
+        window.addEventListener('scroll', scrollListener);
+
+        return () => {
+            window.removeEventListener('scroll', scrollListener);
+        };
+    });
 
     return (
         <div>
@@ -61,11 +77,26 @@ const Landing = () => {
                 ]}
                 style={{ height: '100vh' }}
             >
-                <Fade in={true} timeout={1000} style={{ transitionDelay: '500ms' }}>
+                <Fade
+                    in={true}
+                    timeout={1000}
+                    style={{ transitionDelay: '500ms' }}
+                >
                     <div className={landingContainer}>
                         <h1>Derek Yu</h1>
                         <h2>Software Engineering Student</h2>
-                        <div className={divider}></div>
+                        <div
+                            className={divider}
+                            style={{
+                                background: `linear-gradient(to right, ${
+                                    theme.palette.primary.main
+                                } 0%, ${theme.palette.primary.main} ${
+                                    1.75 * scrollPosition
+                                }%, white ${
+                                    1.75 * scrollPosition
+                                }%, white 100%)`,
+                            }}
+                        ></div>
                         <div className={icons}>
                             <Grow
                                 in={githubLoaded && linkedinLoaded && cvLoaded}
