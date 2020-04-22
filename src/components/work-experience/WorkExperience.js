@@ -21,6 +21,7 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         width: '65vw',
+        minWidth: '300px',
     },
 });
 

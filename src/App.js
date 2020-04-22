@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Fab, useScrollTrigger, Zoom, makeStyles } from '@material-ui/core';
+import { Fab, useScrollTrigger, Zoom, makeStyles, useMediaQuery } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
 import { withController } from 'react-scroll-parallax';
 
@@ -13,15 +13,12 @@ import Projects from './components/projects/Projects';
 const useStyles = makeStyles((theme) => ({
     '@global': {
         body: {
-            fontFamily: 'Lora',
+            fontFamily: 'Raleway',
             fontWeight: 400,
         },
         p: {
             fontSize: '1.1em',
             lineHeight: 1.5,
-        },
-        '* h1, h2, h3, h5': {
-            fontWeight: 400,
         },
         '* .underline': {
             height: '4px',
@@ -38,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
 const fabStyle = makeStyles({
     fabContainer: {
         position: 'fixed',
-        bottom: '2em',
-        right: '2em',
+        bottom: '1.5em',
+        right: '1.5em',
         '& span': {
-            fontFamily: 'Lora',
+            fontFamily: 'Raleway',
             fontWeight: 600,
         },
     },
@@ -55,6 +52,9 @@ const ScrollTop = (props) => {
     const trigger = useScrollTrigger({
         disableHysteresis: true,
     });
+    
+    const isWideScreen = useMediaQuery('screen and (min-width: 1025px)');
+    const horizontalMidway = window.innerWidth / 2 - 73; // TODO: Refactor to calculate midway without hardcoding fab width
 
     const handleClick = () => {
         if (window.history.pushState) {
@@ -75,6 +75,7 @@ const ScrollTop = (props) => {
                 onClick={handleClick}
                 role='presentation'
                 className={fabContainer}
+                style={isWideScreen ? {} : { right: `${horizontalMidway}px`}}
             >
                 {children}
             </div>

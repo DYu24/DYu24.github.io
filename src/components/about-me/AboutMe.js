@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Img from 'react-image';
-import { Fade, Link, makeStyles } from '@material-ui/core';
+import { Fade, Link, makeStyles, useMediaQuery } from '@material-ui/core';
 import { Parallax } from 'react-scroll-parallax';
 
 import profilePicture from '../../resources/DSC_0376.jpg';
@@ -17,7 +17,6 @@ const useStyles = makeStyles({
     content: {
         display: 'flex',
         justifyContent: 'center',
-        flexWrap: 'wrap',
         width: '70vw',
         padding: '2em 0em',
     },
@@ -45,6 +44,8 @@ const AboutMe = () => {
         profilePictureContainer,
         description,
     } = useStyles();
+
+    const isWideScreen = useMediaQuery('screen and (min-width: 1025px)');
 
     const [show, setShow] = useState(false);
     const [imageLoaded, setIsImageLoaded] = useState(false);
@@ -78,12 +79,19 @@ const AboutMe = () => {
     };
 
     return (
-        <div className={aboutMeContainer} id='about-me'>
+        <div
+            className={aboutMeContainer}
+            style={isWideScreen ? {} : { padding: '3em 0 1em 0' }}
+            id='about-me'
+        >
             <h1>ABOUT ME</h1>
-            <Parallax x={['-75%', '25%']}>
+            <Parallax x={['-70%', '30%']}>
                 <div className='underline' />
             </Parallax>
-            <div className={content}>
+            <div
+                className={content}
+                style={isWideScreen ? {} : { flexWrap: 'wrap' }}
+            >
                 <Fade in={show && imageLoaded}>
                     <div className={profilePictureContainer}>
                         <Img src={profilePicture} onLoad={handleOnLoad} />
@@ -106,16 +114,18 @@ const AboutMe = () => {
                             possibilities that came with coding.
                         </p>
                         <p>
-                            I find myself drawn to backend development as I'm
-                            most intrigued by the architectural and algorithmic
-                            challenges that come with it. I have experience
-                            developing in several languages and frameworks (such
-                            as TypeScript, Java and Python to name a few).
+                            I find myself drawn to backend development, along
+                            with the architectural and algorithmic challenges
+                            that come with it. I've also dabbled with machine
+                            learning and Big Data in a few course projects. I
+                            have experience developing in several languages and
+                            frameworks (such as TypeScript, Java and Python to
+                            name a few).
                         </p>
                         <p>
-                            Outside of my life of software development, my other
-                            interests include photography, travelling &
-                            exploring, music and eating{' '}
+                            My other interests, when I have a life, include:
+                            photography, travelling & exploring, movies & video games,
+                            watching cute dog videos, and eating{' '}
                             <span role='img' aria-hidden={true}>
                                 🍕🍔🍜🍣
                             </span>

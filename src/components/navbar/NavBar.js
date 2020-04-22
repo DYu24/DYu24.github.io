@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, makeStyles, useMediaQuery } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     navBarWhite: {
@@ -40,7 +40,6 @@ const NavBarLink = ({ to, text }) => {
                 hashSpy={true}
                 smooth={true}
                 duration={500}
-                offset={5}
             >
                 {text}
             </Link>
@@ -50,6 +49,9 @@ const NavBarLink = ({ to, text }) => {
 
 const NavBar = () => {
     const { navBarWhite, navBarBlack, container } = useStyles();
+
+    const isPortraitPhone = useMediaQuery('screen and (max-width: 623px)');
+
     const [className, setClassName] = useState(navBarWhite);
 
     useEffect(() => {
@@ -69,8 +71,8 @@ const NavBar = () => {
     });
 
     return (
-        <AppBar className={className}>
-            <Toolbar className={container}>
+        <AppBar className={className} position='fixed'>
+            <Toolbar className={container} style={isPortraitPhone ? { justifyContent: 'center' } : {}}>
                 <NavBarLink to='about-me' text='About Me' />
                 <NavBarLink to='work-experience' text='Work Experience' />
                 <NavBarLink to='projects' text='Projects' />

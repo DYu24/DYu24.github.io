@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     chip: {
         margin: '0.1em',
         borderRadius: 5,
-        fontFamily: 'Lora',
+        fontFamily: 'Raleway',
     },
 }));
 

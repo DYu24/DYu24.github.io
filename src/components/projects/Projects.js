@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-evenly',
-        maxWidth: '80vw',
+        maxWidth: '65vw',
         marginTop: '2em',
     },
 });
