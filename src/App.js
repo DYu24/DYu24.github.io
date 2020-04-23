@@ -1,8 +1,9 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Fab, useScrollTrigger, Zoom, makeStyles, useMediaQuery } from '@material-ui/core';
 import { ExpandLess } from '@material-ui/icons';
-import { withController } from 'react-scroll-parallax';
+import { useController } from 'react-scroll-parallax';
+import { animateScroll as scroll } from 'react-scroll';
 
 import NavBar from './components/navbar/NavBar';
 import Landing from './components/landing/Landing';
@@ -53,19 +54,11 @@ const ScrollTop = (props) => {
     });
     
     const isWideScreen = useMediaQuery('screen and (min-width: 1025px)');
-    const horizontalMidway = window.innerWidth / 2 - 73; // TODO: Refactor to calculate midway without hardcoding fab width
+    // TODO: Refactor to calculate midway without hardcoding fab width
+    const horizontalMidway = window.innerWidth / 2 - 73;
 
     const handleClick = () => {
-        if (window.history.pushState) {
-            window.history.pushState('', '/', window.location.pathname);
-        } else {
-            window.location.hash = '';
-        }
-
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+        scroll.scrollToTop({ duration: 500 });
     };
 
     return (
@@ -84,27 +77,13 @@ const ScrollTop = (props) => {
 
 const App = (props) => {
     const App = useStyles();
-
-    useEffect(() => {
-        const hash = window.location.hash;
-        if (hash) {
-            const element = document.querySelector(hash);
-            if (element) {
-                window.scrollTo({
-                    top: element.offsetTop,
-                    behavior: 'smooth',
-                });
-            }
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }, []);
+    const { parallaxController } = useController();
 
     useLayoutEffect(() => {
-        const handler = () => props.parallaxController.update();
+        const handler = () => parallaxController.update();
         window.addEventListener('load', handler);
         return () => window.removeEventListener('load', handler);
-    }, [props.parallaxController]);
+    }, [parallaxController]);
 
     return (
         <BrowserRouter>
@@ -130,4 +109,4 @@ const App = (props) => {
     );
 };
 
-export default withController(App);
+export default App;
