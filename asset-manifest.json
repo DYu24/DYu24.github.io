@@ -1,28 +1,36 @@
 {
   "files": {
-    "main.css": "/static/css/main.54127994.chunk.css",
-    "main.js": "/static/js/main.bf25af61.chunk.js",
-    "main.js.map": "/static/js/main.bf25af61.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.ed8840cb.chunk.js": "/static/js/2.ed8840cb.chunk.js",
-    "static/js/2.ed8840cb.chunk.js.map": "/static/js/2.ed8840cb.chunk.js.map",
+    "main.css": "/static/css/main.498d002a.chunk.css",
+    "main.js": "/static/js/main.0622c318.chunk.js",
+    "main.js.map": "/static/js/main.0622c318.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4c02dd69.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4c02dd69.js.map",
+    "static/js/2.58d659b5.chunk.js": "/static/js/2.58d659b5.chunk.js",
+    "static/js/2.58d659b5.chunk.js.map": "/static/js/2.58d659b5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d61a5c88149a8d03c3f60a4f77e67726.js": "/precache-manifest.d61a5c88149a8d03c3f60a4f77e67726.js",
+    "precache-manifest.146644ff1fcac37734707626027ad176.js": "/precache-manifest.146644ff1fcac37734707626027ad176.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.54127994.chunk.css.map": "/static/css/main.54127994.chunk.css.map",
+    "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
+    "static/js/2.58d659b5.chunk.js.LICENSE.txt": "/static/js/2.58d659b5.chunk.js.LICENSE.txt",
     "static/media/DSC_0376.jpg": "/static/media/DSC_0376.73a6f1b6.jpg",
-    "static/media/Marianopolis.png": "/static/media/Marianopolis.f25c1417.png",
     "static/media/TapOfWarLogo.png": "/static/media/TapOfWarLogo.48dbff7b.png",
     "static/media/cae-logo.png": "/static/media/cae-logo.c76eeacf.png",
     "static/media/caption-this-logo.png": "/static/media/caption-this-logo.d659daba.png",
     "static/media/chefpic-logo.png": "/static/media/chefpic-logo.ce637f05.png",
-    "static/media/concordia-logo.jpg": "/static/media/concordia-logo.47862c9a.jpg",
     "static/media/cv-icon.png": "/static/media/cv-icon.6efac0ae.png",
     "static/media/dott-logo.png": "/static/media/dott-logo.c63e9978.png",
+    "static/media/iceland-pool.jpg": "/static/media/iceland-pool.09fd77ba.jpg",
     "static/media/linkedin-logo.png": "/static/media/linkedin-logo.b7b9d7b8.png",
-    "static/media/resume.pdf": "/static/media/resume.d9da63d4.pdf",
-    "static/media/rudating.png": "/static/media/rudating.c0f0a3aa.png",
-    "static/media/sqm-logo.png": "/static/media/sqm-logo.f6b3c559.png"
-  }
+    "static/media/resume.pdf": "/static/media/resume.1ea8fa0f.pdf",
+    "static/media/rudating.png": "/static/media/rudating.9e5ffccc.png",
+    "static/media/smart-box-logo.png": "/static/media/smart-box-logo.89d717ee.png",
+    "static/media/sqm-logo.png": "/static/media/sqm-logo.b12b1153.png",
+    "static/media/wikipedia-logo.png": "/static/media/wikipedia-logo.f5da73be.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4c02dd69.js",
+    "static/js/2.58d659b5.chunk.js",
+    "static/css/main.498d002a.chunk.css",
+    "static/js/main.0622c318.chunk.js"
+  ]
 }
