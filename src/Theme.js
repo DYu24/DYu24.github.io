@@ -22,7 +22,9 @@ export const theme = createMuiTheme({
           'Montserrat',
           'Poppins',
           'Lora',
-          'Cormorant Garamond'
+          'Manrope',
+          'IBM Plex Sans',
+          'Merriweather',
         ].join(','),
     },
 });

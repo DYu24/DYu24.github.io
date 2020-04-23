@@ -34,6 +34,7 @@ const useStyles = makeStyles({
         flexGrow: 1,
         wordWrap: 'break-word',
         textAlign: 'justify',
+        maxWidth: '600px',
     },
 });
 

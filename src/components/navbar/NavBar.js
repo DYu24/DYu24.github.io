@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         transition: 'background-color 0.5s',
         '& .active': {
-            padddingBottom: '2.5px',
-            borderBottom: '1.5px solid white',
+            padddingBottom: '3px',
+            borderBottom: '1.25px solid white',
         },
     },
     container: {

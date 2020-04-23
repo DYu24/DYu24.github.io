@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     '@global': {
         body: {
             fontFamily: 'Raleway',
-            fontWeight: 400,
         },
         p: {
             fontSize: '1.1em',
