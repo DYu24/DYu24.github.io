@@ -1,8 +1,22 @@
+import amazonLogo from '../../resources/amazon-logo.png';
 import dottLogo from '../../resources/dott-logo.png';
 import sqmLogo from '../../resources/sqm-logo.png';
 import caeLogo from '../../resources/cae-logo.png';
 
 const jobs = [
+    {
+        company: 'Amazon',
+        position: 'Software Development Engineer Intern',
+        period: 'May 2020 - August 2020',
+        src: amazonLogo,
+        description: `At Amazon, I had the opportunity to work as a software developer in the Alexa domain.
+        My project focused on designing and delivering a new feature that would allow customers to set
+        named timers on their Alexa devices without specifying a duration. The goal was to improve on the
+        existing customer experience by reducing friction when speaking to Alexa, and therefore create more
+        enjoyable and natural interactions.`,
+        url: 'https://www.amazon.com/',
+        technologies: ['Java', 'Spring', 'Amazon Web Services'],
+    },
     {
         company: 'Dott',
         position: 'Software Engineer Intern',

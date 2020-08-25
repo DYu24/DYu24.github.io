@@ -27,6 +27,7 @@ const useStyles = makeStyles({
         margin: '0em 3em',
         '& Img': {
             width: '100%',
+            borderRadius: '15px',
         },
     },
     description: {
@@ -101,7 +102,7 @@ const AboutMe = () => {
                 <Fade in={show && displayDescription}>
                     <div className={description}>
                         <p>
-                            I'm a fourth-year software engineering student at{' '}
+                            I'm a software engineering student at{' '}
                             <Link
                                 href='https://www.concordia.ca/'
                                 target='_blank'
