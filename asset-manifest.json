@@ -1,19 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.498d002a.chunk.css",
-    "main.js": "/static/js/main.a26f647f.chunk.js",
-    "main.js.map": "/static/js/main.a26f647f.chunk.js.map",
+    "main.js": "/static/js/main.da7b9b8f.chunk.js",
+    "main.js.map": "/static/js/main.da7b9b8f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4c02dd69.js",
     "runtime-main.js.map": "/static/js/runtime-main.4c02dd69.js.map",
-    "static/js/2.7f07356e.chunk.js": "/static/js/2.7f07356e.chunk.js",
-    "static/js/2.7f07356e.chunk.js.map": "/static/js/2.7f07356e.chunk.js.map",
+    "static/js/2.e07fbf66.chunk.js": "/static/js/2.e07fbf66.chunk.js",
+    "static/js/2.e07fbf66.chunk.js.map": "/static/js/2.e07fbf66.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a0cdb2676fd4bce6142744d0377f9b21.js": "/precache-manifest.a0cdb2676fd4bce6142744d0377f9b21.js",
+    "precache-manifest.255d39eefa286e00b813d5d282bb93d8.js": "/precache-manifest.255d39eefa286e00b813d5d282bb93d8.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
-    "static/js/2.7f07356e.chunk.js.LICENSE.txt": "/static/js/2.7f07356e.chunk.js.LICENSE.txt",
+    "static/js/2.e07fbf66.chunk.js.LICENSE.txt": "/static/js/2.e07fbf66.chunk.js.LICENSE.txt",
     "static/media/DSC_0376.jpg": "/static/media/DSC_0376.73a6f1b6.jpg",
     "static/media/TapOfWarLogo.png": "/static/media/TapOfWarLogo.48dbff7b.png",
+    "static/media/amazon-logo.png": "/static/media/amazon-logo.ed6b5e83.png",
     "static/media/cae-logo.png": "/static/media/cae-logo.c76eeacf.png",
     "static/media/caption-this-logo.png": "/static/media/caption-this-logo.d659daba.png",
     "static/media/chefpic-logo.png": "/static/media/chefpic-logo.ce637f05.png",
@@ -21,7 +22,7 @@
     "static/media/dott-logo.png": "/static/media/dott-logo.c63e9978.png",
     "static/media/iceland-pool.jpg": "/static/media/iceland-pool.09fd77ba.jpg",
     "static/media/linkedin-logo.png": "/static/media/linkedin-logo.b7b9d7b8.png",
-    "static/media/resume.pdf": "/static/media/resume.1ea8fa0f.pdf",
+    "static/media/resume.pdf": "/static/media/resume.cdd10c93.pdf",
     "static/media/rudating.png": "/static/media/rudating.9e5ffccc.png",
     "static/media/smart-box-logo.png": "/static/media/smart-box-logo.89d717ee.png",
     "static/media/sqm-logo.png": "/static/media/sqm-logo.b12b1153.png",
@@ -29,8 +30,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4c02dd69.js",
-    "static/js/2.7f07356e.chunk.js",
+    "static/js/2.e07fbf66.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.a26f647f.chunk.js"
+    "static/js/main.da7b9b8f.chunk.js"
   ]
 }
